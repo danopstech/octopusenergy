@@ -20,7 +20,6 @@ func main() {
 	}
 
 	client := octopusenergy.NewClient(octopusenergy.NewConfig().
-		WithApiKeyFromEnvironments().
 		WithHTTPClient(netClient),
 	)
 

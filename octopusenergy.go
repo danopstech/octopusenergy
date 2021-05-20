@@ -62,6 +62,7 @@ type Client struct {
 func NewClient(cfg *Config) *Client {
 	url, _ := url.Parse(defaultBaseURL)
 	httpClient := http.DefaultClient
+	var auth string
 
 	if cfg.Endpoint != nil {
 		url, _ = url.Parse(*cfg.Endpoint)
@@ -71,9 +72,13 @@ func NewClient(cfg *Config) *Client {
 		httpClient = cfg.HTTPClient
 	}
 
+	if cfg.ApiKey != nil {
+		auth = base64.StdEncoding.EncodeToString([]byte(*cfg.ApiKey + ":"))
+	}
+
 	c := &Client{
 		BaseURL:    *url,
-		auth:       base64.StdEncoding.EncodeToString([]byte(cfg.ApiKey + ":")),
+		auth:       auth,
 		userAgent:  userAgent,
 		HTTPClient: httpClient,
 	}
@@ -102,11 +107,14 @@ func addParameters(url *url.URL, parameters interface{}) (*url.URL, error) {
 	return url, nil
 }
 
-func (c *Client) sendRequest(req *http.Request, castTo interface{}) error {
+func (c *Client) sendRequest(req *http.Request, authed bool, castTo interface{}) error {
 	req.Header.Set("Content-Type", "application/json; charset=utf-8")
 	req.Header.Set("Accept", "application/json; charset=utf-8")
 	req.Header.Set("User-Agent", c.userAgent)
-	req.Header.Set("Authorization", "Basic "+c.auth)
+
+	if authed && c.auth != "" {
+		req.Header.Set("Authorization", "Basic "+c.auth)
+	}
 
 	res, err := c.HTTPClient.Do(req)
 	if err != nil {

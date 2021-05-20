@@ -49,7 +49,7 @@ func (s *MeterPointService) GetWithContext(ctx context.Context, options *MeterPo
 	}
 
 	res := MeterPointGetOutput{}
-	if err := s.client.sendRequest(req, &res); err != nil {
+	if err := s.client.sendRequest(req, true, &res); err != nil {
 		return nil, err
 	}
 

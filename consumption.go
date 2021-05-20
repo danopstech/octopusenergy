@@ -82,7 +82,7 @@ func (s *ConsumptionService) GetWithContext(ctx context.Context, options *Consum
 	}
 
 	res := ConsumptionGetOutput{}
-	if err := s.client.sendRequest(req, &res); err != nil {
+	if err := s.client.sendRequest(req, true, &res); err != nil {
 		return nil, err
 	}
 

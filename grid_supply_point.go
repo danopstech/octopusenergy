@@ -44,7 +44,7 @@ func (s *GridSupplyPointService) GetWithContext(ctx context.Context, options *Gr
 	}
 
 	res := GridSupplyPointGetOutput{}
-	if err := s.client.sendRequest(req, &res); err != nil {
+	if err := s.client.sendRequest(req, false, &res); err != nil {
 		return nil, err
 	}
 

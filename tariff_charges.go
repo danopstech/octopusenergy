@@ -80,15 +80,13 @@ func (s *TariffChargeService) GetWithContext(ctx context.Context, options *Tarif
 		return nil, err
 	}
 
-	fmt.Println(url.String())
-
 	req, err := http.NewRequestWithContext(ctx, "GET", url.String(), nil)
 	if err != nil {
 		return nil, err
 	}
 
 	res := TariffChargesGetOutput{}
-	if err := s.client.sendRequest(req, &res); err != nil {
+	if err := s.client.sendRequest(req, false, &res); err != nil {
 		return nil, err
 	}
 

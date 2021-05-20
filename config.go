@@ -8,10 +8,10 @@ import (
 
 // Config provides service configuration for client.
 type Config struct {
-	// Required for Authentication on all API end-points when using this client.
+	// Required for Authentication on non public API end-points when using this client.
 	// If you are an Octopus Energy customer, you can generate an API key from your online dashboard
 	// https://octopus.energy/dashboard/developer/.
-	ApiKey string
+	ApiKey *string
 
 	// All API requests will use this base URL.
 	Endpoint *string
@@ -32,7 +32,7 @@ func NewConfig() *Config {
 
 // WithApiKey sets a config ApiKey value returning a Config pointer for chaining.
 func (c *Config) WithApiKey(apiKey string) *Config {
-	c.ApiKey = apiKey
+	c.ApiKey = &apiKey
 	return c
 }
 
@@ -47,7 +47,7 @@ func (c *Config) WithApiKeyFromEnvironments() *Config {
 		log.Fatalln("the api key in environment variable 'OCTOPUS_ENERGY_API_KEY' is blank")
 	}
 
-	c.ApiKey = apiKey
+	c.ApiKey = &apiKey
 	return c
 }
 

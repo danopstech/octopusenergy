@@ -86,7 +86,7 @@ func (s *ProductService) ListWithContext(ctx context.Context, options *ProductsL
 	}
 
 	res := ProductsListOutput{}
-	if err := s.client.sendRequest(req, &res); err != nil {
+	if err := s.client.sendRequest(req, true, &res); err != nil {
 		return nil, err
 	}
 
@@ -244,7 +244,7 @@ func (s *ProductService) GetWithContext(ctx context.Context, options *ProductsGe
 	}
 
 	res := ProductsGetOutput{}
-	if err := s.client.sendRequest(req, &res); err != nil {
+	if err := s.client.sendRequest(req, true, &res); err != nil {
 		return nil, err
 	}
 
