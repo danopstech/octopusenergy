@@ -22,13 +22,10 @@ jobs:
         with:
           go-version: ${{ matrix.version }}
 
-      - name: Lint
-        id: lint
-        uses: golangci/golangci-lint-action@v2
-        with:
-          skip-go-installation: true
-
       - name: GoGoGo
         run: |
-          go build ./...
+          go mod download
+          go generate
+          golangci-lint
           go test ./...
+          go build ./...

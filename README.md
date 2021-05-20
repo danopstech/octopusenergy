@@ -8,6 +8,9 @@
 [![License](https://img.shields.io/github/license/danopstech/octopusenergy)](/LICENSE)
 [![Release](https://img.shields.io/github/release/danopstech/octopusenergy.svg)](https://github.com/danopstech/octopusenergy/releases/latest)
 [![tests](https://github.com/danopstech/octopusenergy/actions/workflows/build.yaml/badge.svg)](https://github.com/danopstech/octopusenergy/actions/workflows/build.yaml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/danopstech/octopusenergy)](https://goreportcard.com/report/github.com/danopstech/octopusenergy)
+![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/danopstech/octopusenergy)
+![GitHub issues](https://img.shields.io/github/issues/danopstech/octopusenergy)
 
 This package provides a Golang client to [Octopus Energy's API](https://developer.octopus.energy/docs/api/). Octopus Energy provides a REST API for customers to interact with our platform. Amongst other things, it provides functionality for:
 
