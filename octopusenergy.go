@@ -56,6 +56,7 @@ type Client struct {
 	Product         *ProductService
 	GridSupplyPoint *GridSupplyPointService
 	Consumption     *ConsumptionService
+	Account         *AccountService
 }
 
 // NewClient accepts a config object and returns an initiated client ready to use.
@@ -89,6 +90,7 @@ func NewClient(cfg *Config) *Client {
 	c.Product = (*ProductService)(&c.common)
 	c.GridSupplyPoint = (*GridSupplyPointService)(&c.common)
 	c.Consumption = (*ConsumptionService)(&c.common)
+	c.Account = (*AccountService)(&c.common)
 
 	return c
 }
