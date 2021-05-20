@@ -1,4 +1,4 @@
-//go:generate stringer -linecomment -output=gen_stringer.go -type=FuelType,Rate
+//go:generate stringer -linecomment -type=FuelType
 
 // Package octopusenergy proves an interface for Octopus Energy REST APIs.
 package octopusenergy

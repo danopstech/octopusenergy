@@ -1,3 +1,5 @@
+//go:generate stringer -linecomment -type=Rate
+
 package octopusenergy
 
 import (
