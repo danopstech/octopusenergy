@@ -25,7 +25,5 @@ jobs:
       - name: GoGoGo
         run: |
           go mod download
-          go generate
-          golangci-lint
           go test ./...
           go build ./...
