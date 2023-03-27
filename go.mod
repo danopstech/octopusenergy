@@ -3,7 +3,7 @@ module github.com/danopstech/octopusenergy
 go 1.16
 
 require (
-	github.com/golangci/golangci-lint v1.50.1
+	github.com/golangci/golangci-lint v1.52.2
 	github.com/google/go-querystring v1.1.0
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
@@ -11,10 +11,7 @@ require (
 	github.com/prometheus/client_golang v1.12.2 // indirect
 	github.com/prometheus/common v0.37.0 // indirect
 	github.com/rivo/uniseg v0.4.2 // indirect
-	github.com/spf13/cobra v1.6.1 // indirect
-	github.com/stretchr/testify v1.8.1 // indirect
-	golang.org/x/text v0.5.0 // indirect
-	golang.org/x/tools v0.2.0
+	golang.org/x/tools v0.7.0
 	google.golang.org/protobuf v1.28.1 // indirect
 	gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c // indirect
 )
